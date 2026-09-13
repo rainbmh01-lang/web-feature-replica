@@ -42,6 +42,26 @@ Follow these phases in order:
 10. Correct verified differences.
 11. Perform a final fidelity audit.
 
+## MANDATORY VISUAL CAPTURE GATE (Zero Exception)
+
+YOU ARE STRICTLY FORBIDDEN FROM:
+- Proposing an implementation plan
+- Writing any source code
+- Proceeding to Phase 2 (Visual Analysis) or subsequent phases
+UNTIL you have captured and visually inspected screenshots of the live reference feature.
+
+### Required Visual Capture Sequence:
+1. **Launch Browser Automation**: Use Puppeteer, Playwright, or Edge to navigate directly to the reference URL.
+2. **Capture Target Feature Screenshots**: Take isolated, high-resolution screenshots of the target feature in ALL observable states:
+   - `original_idle.png` (Default / idle state)
+   - `original_hover.png` (Hover / pointer interaction)
+   - `original_focused.png` (Focused / active input state)
+   - `original_active_dropdown.png` (Dropdown / overlay / suggestions panel if applicable)
+   - `original_typing.png` (Populated with text / typing state)
+3. **Mandatory Visual Inspection Tool Call**: You MUST execute `view_file` on EVERY captured screenshot to inspect it visually.
+   - Inspecting DOM/HTML/network alone is INSUFFICIENT and constitutes an explicit violation of this gate.
+4. **Visual Comparison Requirement**: Both the reference screenshots and replica screenshots must be compared side-by-side during verification.
+
 ## Fidelity Rules
 
 - Do not add functionality that does not exist in the reference.
